@@ -4,6 +4,11 @@ const mongoose = require('mongoose')
 const Users = require('./models/Users.js')
 const bcrypt = require('bcrypt');
 const userController = require('./controllers/users_controller.js')
+const db = mongoose.connection;
+const cors = require('cors');
+require('dotenv').config()
+const Samples = require('./models/sampleSchema.js')
+
 
 const PORT = process.env.PORT || 3003;
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -71,7 +76,7 @@ app.listen(3000, () => {
     console.log('listening on 3000 homie...');
 })
     
-mongoose.connect('mongodb://localhost:27017/samples')
-mongoose.connection.once('open', ()=>{
-    console.log('connected to mongod...');
-});
+// mongoose.connect('mongodb://localhost:27017/poly')
+// mongoose.connection.once('open', ()=>{
+//     console.log('connected to mongod...');
+// });
